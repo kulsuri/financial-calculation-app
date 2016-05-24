@@ -3,7 +3,7 @@ var math = require('mathjs');
 var appRouter = function(app){
     
     app.get("/", function(req, res){
-        res.send("this is the home page");
+        res.send("this is a test!!!!");
     });
     
     app.get("/home", function(req, res){
