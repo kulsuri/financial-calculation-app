@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html ng-app="MyModule" lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>npv rest api app</title>
+    <!--styles css-->
+    <link rel="stylesheet" href="styles/styles.css">
+    <!--bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <!--angular cdn-->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+    <!--scripts-->
+    <script src="scripts/module.js" type="text/javascript"></script>
+    <script src="scripts/controller.js" type="text/javascript"></script>
+    <!-- jQuery -->
+    <script   src="https://code.jquery.com/jquery-2.2.3.min.js"   integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="   crossorigin="anonymous"></script>
+    <!-- mmenu jquery script -->
+    <script src="scripts/jquery.mmenu.all.min.js" type="text/javascript"></script>
+    <!-- mmenu css -->
+    <link href="styles/jquery.mmenu.all.css" type="text/css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <nav id="my-menu">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li class="Divider"></li>
+                <li><a href="/">About us</a>
+                    <ul>
+                        <li><a href="/">History</a></li>
+                        <li><a href="/">The team</a></li>
+                        <li><a href="/">Our address</a></li>
+                    </ul>
+                </li>
+                <li><a href="/">Contact</a></li>
+            </ul>
+        </nav>
+        <nav>
+            <a href="#my-menu" id="menuButton" class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></a>
+        </nav>    
+        <div id="npv" ng-controller="Ctrl4">
+            <form ng-submit="sendPost()">
+                discount rate: <input type="number" ng-model="discountRate" placeholder="discount rate"><br>
+                initial investment: <input type="number" ng-model="initialInvestment" placeholder="initial investment"><br>
+                years: <input type="number" ng-model="years" ng-change="addCashFlowFields()" placeholder="years">
+                <div ng-repeat="item in cashFlowsArray">
+                    <input type="number" ng-model="item.value" placeholder="cashFlow year">
+                </div>
+
+                <br>
+                <button type="submit" class="btn btn-default glyphicon glyphicon-ok"></button>
+                <br>
+                net present value: <input type="text" name="" placeholder="npv" value="{{npv.npv}}"><br>
+            </form>
+        </div>
+    </div>
+</body>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#my-menu").mmenu({
+                // Options
+//                "navbar": {
+//                    "add": false
+//                },
+                searchfield: true,
+                extensions: [
+                    "theme-white",
+                    "effect-menu-slide",
+                    "multiline",
+                    "pagedim-black",
+                    "pageshadow",
+                    "widescreen"
+                ]
+            });
+            var API = $("#my-menu").data( "mmenu" );
+        });
+    </script>
+</html>

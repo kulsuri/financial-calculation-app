@@ -1,0 +1,47 @@
+#npv {
+    width : 200px;
+    height: 300px;
+
+/*    position: absolute;*/
+    position: inherit;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0; 
+
+    margin: auto;
+    
+    font-size: 1.3em;
+    color: white;
+/*        aliceblue*/
+}
+
+#npv input {
+    color: black;
+}
+
+#npv button {
+    color: black;
+}
+
+body { 
+    background: dimgrey !important; 
+} 
+
+nav {
+    padding: 40px;
+    color: aliceblue;
+    font-size: 2em; 
+}
+
+#searchButton {
+    float: right;
+    text-align: center;
+}
+
+#menuButton {
+    float: left;
+    font-size: 1.2em;
+    color: white;
+    text-decoration: none;
+}
