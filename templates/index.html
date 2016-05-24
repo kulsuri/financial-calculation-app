@@ -19,6 +19,9 @@
     <script src="scripts/jquery.mmenu.all.min.js" type="text/javascript"></script>
     <!-- mmenu css -->
     <link href="styles/jquery.mmenu.all.css" type="text/css" rel="stylesheet" />
+    <!-- KaTeX-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.js"></script>
 </head>
 <body>
     <div>
@@ -40,7 +43,12 @@
             <a href="#my-menu" id="menuButton" class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></a>
         </nav>    
         <div id="npv" ng-controller="Ctrl4" class="">
+
             <form ng-submit="sendPost()">
+                <div class="math">
+                    NPV = - C_0 + \sum_{i=1}^T \frac{C_i}{(1+r)^i} 
+                </div>
+                <br>
                 discount rate: <input type="number" ng-model="discountRate" placeholder="discount rate"><br>
                 initial investment: <input type="number" ng-model="initialInvestment" placeholder="initial investment"><br>
                 years: <input type="number" ng-model="years" ng-change="addCashFlowFields()" placeholder="years">
@@ -77,5 +85,29 @@
             });
             var API = $("#my-menu").data( "mmenu" );
         });
+    </script>
+<!--
+    <script>
+        katex.render("NPV = \sqrt{1+x} \quad (x \ge  -1) ", mykatex1);
+    </script> 
+-->
+    <script>
+        (function(){
+            $(".math").each(function() {
+                var texTxt = $(this).text();
+                el = $(this).get(0);
+                if(el.tagName == "DIV"){
+                    addDisp = "\\displaystyle";
+                } else {
+                    addDisp = "";
+                }
+                try {
+                    katex.render(addDisp+texTxt, el);
+                }
+                catch(err) {
+                    $(this).html("<span class='err'>"+err);
+                }
+            }); 
+        })(); 
     </script>
 </html>
