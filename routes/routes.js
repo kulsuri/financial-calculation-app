@@ -22,35 +22,8 @@ var appRouter = function(app){
     app.get("/npv", function(req, res){
         res.sendFile('index.html', {root: __dirname + '/../templates'});
     });
-    
-//    app.post("/npv", function(req, res){
-//        var discountRate = req.body.discountRate;
-//        var initialInvestment = req.body.initialInvestment;
-//        var years = req.body.years;
-//        var cashFlow = req.body.cashFlow;
-//        if(!discountRate || !initialInvestment || !years || !cashFlow) {
-//            return res.send({"status": "error", "message": "missing a parameter"});
-//        } else {
-//            var discountRateDecimal = math.divide(discountRate, 100);
-//            var presentValue = [];
-//            var presentValueTotal = 0;
-//
-//            for (i=0; i < years; ++i){
-//                var b = i+1;
-//                presentValue[i] = cashFlow[i]/math.pow(1+discountRateDecimal, b);
-//                presentValueTotal = math.add(presentValueTotal, presentValue[i]);
-//            }
-//            console.log("loop finished");
-//            var npv = math.add(-initialInvestment, presentValueTotal);
-//            var npvRounded = math.round(npv, 2);
-//            var npvValue = {"npv": npvRounded};
-//            console.log("npv = " + npv);
-//            return res.send(npvValue);
-//        }       
-//    });
-////};
 
-    app.post("/npv2", function(req, res){
+    app.post("/npv", function(req, res){
         var discountRate = req.body.discountRate;
         var initialInvestment = req.body.initialInvestment;
         var years = req.body.years;
@@ -66,7 +39,6 @@ var appRouter = function(app){
             return res.send(npvValue);       
         }
     });
-    
 };
 
 module.exports = appRouter;
