@@ -41,25 +41,29 @@ angular.module("MyModule")
         };
         
         $scope.sendPost = function(){
-            var cashFlow = [];
-            for (var i=0; i < $scope.cashFlowsArray.length; ++i){
-                cashFlow.push($scope.cashFlowsArray[i].value);
+            if($scope.cashFlowsArray === undefined){
+                console.log("Missing fields");
+            } else {
+                var cashFlow = [];
+                for (var i=0; i < $scope.cashFlowsArray.length; ++i){
+                    cashFlow.push($scope.cashFlowsArray[i].value);
+                }
+
+                $http({
+                    url: 'http://localhost:3000/npv',
+                    method: "POST",
+                    data: {
+                        "discountRate": $scope.discountRate,
+                        "initialInvestment": $scope.initialInvestment,
+                        "years": $scope.years,
+                        cashFlow
+                    },
+                    headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+                }).success(function (data, status, headers, config) {
+                    $scope.npv = data;
+                    console.log(data);
+                });
             }
-            
-            $http({
-                url: 'http://localhost:3000/npv',
-                method: "POST",
-                data: {
-                    "discountRate": $scope.discountRate,
-                    "initialInvestment": $scope.initialInvestment,
-                    "years": $scope.years,
-                    cashFlow
-                },
-                headers: {'Content-Type': 'application/x-www-form-urlencoded'}
-            }).success(function (data, status, headers, config) {
-                $scope.npv = data;
-                console.log(data);
-            });
         };    
     }]);
         
