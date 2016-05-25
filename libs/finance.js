@@ -24,6 +24,25 @@ Finance.prototype.NPV = function (rate) {
     return Math.round(npv * 100) / 100;
 };
 
+///////////////////////////////////////////////////////
+///////////////////////////////////////////////////////
+
+Finance.prototype.NPV2 = function(discountRate, initialInvestment, years, cashFlow) {
+    var discountRateDecimal = discountRate/100;
+    var presentValue = [];
+    var presentValueTotal = 0;
+
+    for (i=0; i < years; ++i){
+        var b = i+1;
+        presentValue[i] = cashFlow[i]/Math.pow(1+discountRateDecimal, b);
+        presentValueTotal = presentValueTotal + presentValue[i];
+    }
+    var npv = -initialInvestment + presentValueTotal;
+    return npv;
+};
+///////////////////////////////////////////////////////
+///////////////////////////////////////////////////////
+
 // seekZero seeks the zero point of the function fn(x), accurate to within x \pm 0.01. fn(x) must be decreasing with x.
 function seekZero(fn) {
     var x = 1;
