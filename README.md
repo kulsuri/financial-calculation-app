@@ -7,7 +7,7 @@ Spec:
 - micro services architecture
 
 Installation Instructions:
-- fork repo
+- clone repo
 - open cmd and cd to the directory containing app
 - run "npm install" in cmd
 - run "node app.js" in cmd
