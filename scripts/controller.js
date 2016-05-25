@@ -62,9 +62,43 @@ angular.module("MyModule")
                 }).success(function (data, status, headers, config) {
                     $scope.npv = data;
                     console.log(data);
+//                    myWindowGlobalLibraryName.myCustomLog(["My library","Rules"]);
+//                    Bayside.alert(1,2);
+
                 });
             }
         };    
+    }])
+
+    .controller('Ctrl5', ['$scope', '$http', function ($scope, $http) {
+                $http({
+                    url: 'http://localhost:3000/npv',
+                    method: "POST",
+                    data: {
+                        "discountRate": 10,
+                        "initialInvestment": 10000,
+                        "years": 3,
+                        "cashFlow": [888, 777, 666]
+                    },
+                    headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+                }).success(function (data, status, headers, config) {
+//                    $scope.npv = data;
+                    console.log(data);
+                });
+                $http({
+                    url: 'http://localhost:3000/npv2',
+                    method: "POST",
+                    data: {
+                        "discountRate": 10,
+                        "initialInvestment": 10000,
+                        "years": 3,
+                        "cashFlow": [888, 777, 666]
+                    },
+                    headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+                }).success(function (data, status, headers, config) {
+                    //                    $scope.npv = data;
+                    console.log(data);
+                });
     }]);
         
 

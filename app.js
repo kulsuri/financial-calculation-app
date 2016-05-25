@@ -10,6 +10,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //app.use(express.static(__dirname + '/templates'));
 
 app.use("/scripts", express.static(__dirname + '/scripts'));
+app.use("/libs", express.static(__dirname + '/libs'));
 app.use("/styles",  express.static(__dirname + '/styles'));
 //app.use("/images",  express.static(__dirname + '/images'));
 

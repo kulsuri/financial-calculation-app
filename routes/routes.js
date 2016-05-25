@@ -1,4 +1,5 @@
 var math = require('mathjs');
+var Finance = require('../libs/finance.js');
 
 var appRouter = function(app){
     
@@ -16,33 +17,6 @@ var appRouter = function(app){
     
     app.get("/home", function(req, res){
         res.sendFile('test.html', {root: __dirname + '/../templates'});
-    });
-    
-    app.get("/account", function(req, res, next){
-        var accountMock = {
-            "username": "kulsuri",
-            "password": "QwErTy123",
-            "twitter": "theBestRestApiTwitterAccount"
-        };
-        if(!req.query.username){
-            return res.send({"status": "error", "message": "missing username"});
-        } else if(req.query.username != accountMock.username){
-            return res.send({"status": "error", "message": "wrong username"});
-        } else {
-            return res.send(accountMock);
-        }
-    });
-    
-    app.post("/account", function(req, res) {
-        if(!req.body.username) {
-            return res.send({"status": "error", "message": "missing username"});
-        } else if(!req.body.password) {
-            return res.send({"status": "error", "message": "missing password"});
-        } else if(!req.body.twitter) {
-            return res.send({"status": "error", "message": "missing twitter"});
-        } else {
-            return res.send(req.body);
-        }
     });
     
     app.get("/npv", function(req, res){
@@ -64,19 +38,33 @@ var appRouter = function(app){
             for (i=0; i < years; ++i){
                 var b = i+1;
                 presentValue[i] = cashFlow[i]/math.pow(1+discountRateDecimal, b);
-//                console.log("present value " + i + ": " + presentValue[i]);
                 presentValueTotal = math.add(presentValueTotal, presentValue[i]);
-//                console.log("present value total " + i + ": " + presentValueTotal);
             }
             console.log("loop finished");
             var npv = math.add(-initialInvestment, presentValueTotal);
             var npvRounded = math.round(npv, 2);
             var npvValue = {"npv": npvRounded};
             console.log("npv = " + npv);
-//            console.log(npvValue);
             return res.send(npvValue);
         }       
     });
+//};
+
+    app.post("/npv2", function(req, res){
+        var discountRate = req.body.discountRate;
+        var initialInvestment = req.body.initialInvestment;
+        var years = req.body.years;
+        var cashFlow = req.body.cashFlow;
+        
+        var finance = new Finance();
+        var ds = 10;
+        var ii = -50000
+        var cf = [10000, 20000, 40000];
+        var test123 =   finance.NPV(ds, ii, cf[0], cf[1], cf[2]);
+//        var test123 =   finance.NPV(10, -500000, 200000, 300000, 200000);
+        return res.send({test123});       
+    });
+    
 };
 
 module.exports = appRouter;
