@@ -4,9 +4,9 @@ $(document).ready(function() {
             {
                 "position": "bottom",
                 "content": [
-                    "<a class='glyphicon glyphicon-home' href='#/'></a>",
-                    "<a class='glyphicon glyphicon-user' href='#/'></a>",
-                    "<a class='glyphicon glyphicon-comment' href='#/'></a>",
+                    "<a class='glyphicon glyphicon-home' href='/'></a>",
+                    "<a class='glyphicon glyphicon-user' href='/about'></a>",
+                    "<a class='glyphicon glyphicon-comment' href='/contact'></a>",
                 ]
             }
         ],
