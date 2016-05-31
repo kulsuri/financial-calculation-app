@@ -53,14 +53,12 @@ var appRouter = function(app){
             return res.send({"status": "error", "message": "missing a parameter"});
         } else {
             var finance = new Finance();
-            cashFlow = [200000, 300000, 200000]
+//            cashFlow = [200000, 300000, 200000]
             console.log(cashFlow);
             console.log(cashFlow[0]);
-//            var irrValueFromLibrary = finance.IRR(-initialInvestment, cashFlow[0], cashFlow[1], cashFlow[2]);
-            var irrValueFromLibrary = finance.IRR(-initialInvestment, cashFlow);
+            var irrValueFromLibrary = finance.IRR(-initialInvestment, cashFlow[0], cashFlow[1], cashFlow[2]);
 
             console.log(irrValueFromLibrary);
-//            var irrRounded = math.round(irrValueFromLibrary, 2);
             var irrValue = {"irr": math.round(irrValueFromLibrary, 2)};
             return res.send(irrValue);       
         }
