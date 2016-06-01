@@ -18,6 +18,7 @@ Finance.prototype.NPV2 = function(discountRate, initialInvestment, years, cashFl
 
 // Internal Rate of Return (IRR)
 Finance.prototype.IRR2 = function(CArray) {
+    CArray[0] = -CArray[0];
     var min = -1.0;
     var max = 1.0;
     var guess = (min + max) / 2;
