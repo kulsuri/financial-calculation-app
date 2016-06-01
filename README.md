@@ -15,3 +15,4 @@ Installation Instructions:
 - run "node app.js" in cmd
 - open another command prompt run "node scripts/seneca.js"
 - open "http://localhost:3000/npv" in browser
+
