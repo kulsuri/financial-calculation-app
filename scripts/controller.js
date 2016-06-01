@@ -58,6 +58,7 @@ angular.module("MyModule")
                 console.log("Missing fields");
             } else {
                 var cashFlow = [];
+                cashFlow.push($scope.initialInvestment);
                 for (var i=0; i < $scope.cashFlowsArray.length; ++i){
                     cashFlow.push($scope.cashFlowsArray[i].value);
                 }
@@ -65,11 +66,7 @@ angular.module("MyModule")
                     url: 'http://localhost:3000/irr',
                     method: "POST",
                     data: {
-                        "initialInvestment": $scope.initialInvestment,
-                        "years": $scope.years,
-                        "cashflow[0]": $scope.cashFlow[0]
-                        "cashflow[1]": $scope.cashFlow[0]
-                        "cashflow[2]": $scope.cashFlow[0]
+                        cashFlow
                     },
                     headers: {'Content-Type': 'application/x-www-form-urlencoded'}
                 }).success(function (data, status, headers, config) {

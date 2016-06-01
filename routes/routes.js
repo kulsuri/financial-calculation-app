@@ -39,35 +39,23 @@ var appRouter = function(app){
         if(!discountRate || !initialInvestment || !years || !cashFlow) {
             return res.send({"status": "error", "message": "missing a parameter"});
         } else {
-//            var finance = new Finance();
-//            var npvValueFromLibrary = finance.NPV2(discountRate, initialInvestment, years, cashFlow);
-//            var npvValue = {"npv": math.round(npvValueFromLibrary, 2)};
-//            return res.send(npvValue);
-            
-            seneca.act({role: 'finance', cmd: 'NPV', discountRate: discountRate, initialInvestment: initialInvestment, years: years, cashFlow: cashFlow }, function(err, done) 
-                {
+            seneca.act({role: 'finance', cmd: 'NPV', discountRate: discountRate, initialInvestment: initialInvestment, years: years, cashFlow: cashFlow }, function(err, done){
                     console.log(done);
                     return res.send(done);
-                }
-                      );
+            });
         }
     });
     
     app.post("/irr", function(req, res){
-        var initialInvestment = req.body.initialInvestment;
-        var years = req.body.years;
         var cashFlow = req.body.cashFlow;
 
-        if(!initialInvestment || !years || !cashFlow) {
+        if(!cashFlow) {
             return res.send({"status": "error", "message": "missing a parameter"});
         } else {
-            
-            seneca.act({role: 'finance', cmd: 'IRR', initialInvestment: initialInvestment, years: years, cashFlow: cashFlow }, function(err, done) 
-                {
-                    console.log(done);
-                    return res.send(done);
-                }
-                      )    
+            seneca.act({role: 'finance', cmd: 'IRR', cashFlow}, function(err, done){
+                console.log(done);
+                return res.send(done);
+            });    
         }
     });
 };

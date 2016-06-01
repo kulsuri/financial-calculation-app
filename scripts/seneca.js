@@ -13,15 +13,11 @@ seneca.add({role: 'finance', cmd: 'NPV'}, function(args, done){
 })
 
 .add({role: 'finance', cmd: 'IRR'}, function(args, done){
+    console.log(args.cashFlow);
     var finance = new Finance();
-//            cashFlow = [200000, 300000, 200000]
-            console.log(cashFlow);
-            console.log(cashFlow[0]);
-            var irrValueFromLibrary = finance.IRR(-args.initialInvestment, args.cashFlow[0], args.cashFlow[1], args.cashFlow[2]);
-
-            console.log(irrValueFromLibrary);
-            var irrValue = {"irr": math.round(irrValueFromLibrary, 2)};
-            done(null, irrValue);   
+    var irrValueFromLibrary = finance.IRR2(args.cashFlow);
+    var irrValue = {"irr": math.round(irrValueFromLibrary, 2)};
+    done(null, irrValue);
 })
 
 seneca.listen
