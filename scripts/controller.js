@@ -13,6 +13,7 @@ angular.module("MyModule")
                 }
             }
         };
+//        $scope.test = 10;
         $scope.sendPost = function(){
             if($scope.cashFlowsArray === undefined){
                 console.log("Missing fields");
@@ -56,7 +57,7 @@ angular.module("MyModule")
                 console.log("Missing fields");
             } else {
                 var cashFlow = [];
-                cashFlow.push(-$scope.initialInvestment);
+                cashFlow.push($scope.initialInvestment);
                 for (var i=0; i < $scope.cashFlowsArray.length; ++i){
                     cashFlow.push($scope.cashFlowsArray[i].value);
                 }
