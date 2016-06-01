@@ -13,7 +13,7 @@ angular.module("MyModule")
                 }
             }
         };
-        $scope.test = 10;
+//        $scope.test = 10;
         $scope.sendPost = function(){
             if($scope.cashFlowsArray === undefined){
                 console.log("Missing fields");
