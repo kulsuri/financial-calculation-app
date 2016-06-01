@@ -1,9 +1,9 @@
-var seneca = require('seneca')()
+var seneca = require('seneca')();
 seneca.client ({
     host: 'localhost',
     port: '3001',
     pin: {role: 'finance'}
-})
+});
 var appRouter = function(app){
     
     app.get("/", function(req, res){
@@ -25,6 +25,10 @@ var appRouter = function(app){
     app.get("/npv", function(req, res){
         res.sendFile('index.html', {root: __dirname + '/../templates'});
     });
+    
+    app.get("/irr", function(req, res){
+        res.sendFile('irr.html', {root: __dirname + '/../templates'});
+    });
 
     app.post("/npv", function(req, res){
         var discountRate = req.body.discountRate;
@@ -35,13 +39,23 @@ var appRouter = function(app){
         if(!discountRate || !initialInvestment || !years || !cashFlow) {
             return res.send({"status": "error", "message": "missing a parameter"});
         } else {
-            seneca.act({role: 'finance', cmd: 'NPV', discountRate: discountRate, initialInvestment: initialInvestment, years: years, cashFlow: cashFlow }, function(err, done) 
-                {
-                    console.log(done)
-                    return res.send(done)
-                }
-                      )
-             
+            seneca.act({role: 'finance', cmd: 'NPV', discountRate: discountRate, initialInvestment: initialInvestment, years: years, cashFlow: cashFlow }, function(err, done){
+                    console.log(done);
+                    return res.send(done);
+            });
+        }
+    });
+    
+    app.post("/irr", function(req, res){
+        var cashFlow = req.body.cashFlow;
+
+        if(!cashFlow) {
+            return res.send({"status": "error", "message": "missing a parameter"});
+        } else {
+            seneca.act({role: 'finance', cmd: 'IRR', cashFlow}, function(err, done){
+                console.log(done);
+                return res.send(done);
+            });    
         }
     });
 };

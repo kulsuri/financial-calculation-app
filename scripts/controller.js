@@ -38,4 +38,40 @@ angular.module("MyModule")
                 });
             }
         };    
+    }])
+
+    .controller('irrCtrl', ['$scope', '$http', function ($scope, $http) {
+
+        $scope.addCashFlowFields = function(){
+            if($scope.years > 100){
+            } else {
+                $scope.cashFlowsArray = [];
+                for (var i=0; i < $scope.years; ++i){
+                    $scope.cashFlowsArray.push({});
+                }
+            }
+        };
+
+        $scope.sendPost = function(){
+            if($scope.cashFlowsArray === undefined){
+                console.log("Missing fields");
+            } else {
+                var cashFlow = [];
+                cashFlow.push(-$scope.initialInvestment);
+                for (var i=0; i < $scope.cashFlowsArray.length; ++i){
+                    cashFlow.push($scope.cashFlowsArray[i].value);
+                }
+                $http({
+                    url: 'http://localhost:3000/irr',
+                    method: "POST",
+                    data: {
+                        cashFlow
+                    },
+                    headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+                }).success(function (data, status, headers, config) {
+                    $scope.irr = data;
+                    console.log(data); // browser console.log
+                });
+            }
+        };    
     }]);
