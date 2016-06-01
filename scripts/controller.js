@@ -53,6 +53,7 @@ angular.module("MyModule")
         };
 
         $scope.sendPost = function(){
+            console.log("calling post")
             if($scope.cashFlowsArray === undefined){
                 console.log("Missing fields");
             } else {
@@ -66,12 +67,14 @@ angular.module("MyModule")
                     data: {
                         "initialInvestment": $scope.initialInvestment,
                         "years": $scope.years,
-                        cashFlow
+                        "cashflow[0]": $scope.cashFlow[0]
+                        "cashflow[1]": $scope.cashFlow[0]
+                        "cashflow[2]": $scope.cashFlow[0]
                     },
                     headers: {'Content-Type': 'application/x-www-form-urlencoded'}
                 }).success(function (data, status, headers, config) {
                     $scope.irr = data;
-                    console.log(data); // browser console.log
+                    console.log(data);
                 });
             }
         };    

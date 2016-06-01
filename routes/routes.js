@@ -61,15 +61,13 @@ var appRouter = function(app){
         if(!initialInvestment || !years || !cashFlow) {
             return res.send({"status": "error", "message": "missing a parameter"});
         } else {
-            var finance = new Finance();
-//            cashFlow = [200000, 300000, 200000]
-            console.log(cashFlow);
-            console.log(cashFlow[0]);
-            var irrValueFromLibrary = finance.IRR(-initialInvestment, cashFlow[0], cashFlow[1], cashFlow[2]);
-
-            console.log(irrValueFromLibrary);
-            var irrValue = {"irr": math.round(irrValueFromLibrary, 2)};
-            return res.send(irrValue);       
+            
+            seneca.act({role: 'finance', cmd: 'IRR', initialInvestment: initialInvestment, years: years, cashFlow: cashFlow }, function(err, done) 
+                {
+                    console.log(done);
+                    return res.send(done);
+                }
+                      )    
         }
     });
 };

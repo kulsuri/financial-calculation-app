@@ -58,6 +58,7 @@ function seekZero(fn) {
 // Internal Rate of Return (IRR)
 Finance.prototype.IRR = function(cfs) { 
     var args = arguments;
+    console.log("called")
     function npv(rate) {
         var rrate = (1 + rate/100);
         var npv = args[0];
