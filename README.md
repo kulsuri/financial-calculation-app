@@ -1,8 +1,8 @@
 # financial-calculation-app
 Calculations
 ---
-1) net present value 
-2) internal rate of return
+- net present value 
+- internal rate of return
 
 Specification
 ---
