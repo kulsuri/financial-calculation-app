@@ -1,14 +1,17 @@
 # financial-calculation-app
-Web app to calculate:
+Calculations
+---
 1) net present value 
 2) internal rate of return
 
-Spec:
+Specification
+---
 - attractive, simple and dynamic UI
 - REST API calls javascript library containing NPV calculation function
 - seneca micro service architecture 
 
-Installation Instructions:
+Installation Instructions
+---
 - clone repo
 - open cmd and cd to the directory containing app
 - run "npm install" in cmd
@@ -16,10 +19,10 @@ Installation Instructions:
 - open another command prompt run "node scripts/seneca.js"
 - open "http://localhost:3000/npv" in browser
 
-Using REST API:
+Using REST API
+---
 
 NPV
----
 - POST 
 - http://localhost:3000/npv
 - Body: {"discountRate": VALUE, "initialInvestment": VALUE, "years": VALUE, cashFlow}
@@ -27,7 +30,6 @@ NPV
 - Res = {"npv": 350.83}
 
 IRR
----
 - POST 
 - http://localhost:3000/irr
 - var cashFlow = [inital investment, cashFlowYear1, cashFlowYear2, cashFlowYear3, etc]
