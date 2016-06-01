@@ -1,6 +1,7 @@
 // Instantiate a Finance class
 var Finance = function() {};
 
+// Net Present Value (NPV)
 Finance.prototype.NPV2 = function(discountRate, initialInvestment, years, cashFlow) {
     var discountRateDecimal = discountRate/100;
     var presentValue = [];
