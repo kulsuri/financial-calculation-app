@@ -14,29 +14,49 @@ angular.module("MyModule")
             }
         };
         $scope.sendPost = function(){
-            if($scope.cashFlowsArray === undefined){
-                console.log("Missing fields");
+   
+            if($scope.discountRate === undefined){
+                console.log("discount rate missing");
+                window.alert("discount rate missing");
+            } else if($scope.initialInvestment === undefined){
+                console.log("initial investment missing");
+                window.alert("initial investment missing");
+            } else if($scope.years === undefined){
+                console.log("missing number of years");
+                window.alert("missing number of years");
             } else {
                 var cashFlow = [];
+                var missingCashFlowYearField = false;
                 for (var i=0; i < $scope.cashFlowsArray.length; ++i){
-                    cashFlow.push($scope.cashFlowsArray[i].value);
+                    if($scope.cashFlowsArray[i].value === undefined || $scope.cashFlowsArray[i].value === null){
+//                        console.log("missing a cash flow field for year " + (i+1));
+                        console.log("missing a cash flow field(s)");
+                        window.alert("missing a cash flow field(s)");
+                        var missingCashFlowYearField = true;
+                        $scope.npv = null;
+                        break;
+                    } else {
+                        cashFlow.push($scope.cashFlowsArray[i].value);
+                    }
                 }
-                $http({
-                    url: 'http://localhost:3000/npv',
-                    method: "POST",
-                    data: {
-                        "discountRate": $scope.discountRate,
-                        "initialInvestment": $scope.initialInvestment,
-                        "years": $scope.years,
-                        cashFlow
-                    },
-                    headers: {'Content-Type': 'application/x-www-form-urlencoded'}
-                }).success(function (data, status, headers, config) {
-                    $scope.npv = data;
-                    console.log(data); // browser console.log
-                });
+                if(missingCashFlowYearField != true){
+                    $http({
+                        url: 'http://localhost:3000/npv',
+                        method: "POST",
+                        data: {
+                            "discountRate": $scope.discountRate,
+                            "initialInvestment": $scope.initialInvestment,
+                            "years": $scope.years,
+                            cashFlow
+                        },
+                        headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+                    }).success(function (data, status, headers, config) {
+                        $scope.npv = data;
+                        console.log(data);
+                    });
+                } else {}
             }
-        };    
+        };   
     }])
 
     .controller('irrCtrl', ['$scope', '$http', function ($scope, $http) {
