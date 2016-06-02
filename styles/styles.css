@@ -1,17 +1,19 @@
-#npv input {
+#calculationContent input {
     color: black;
-/*    width: 200px;*/
+/*    width: 300px;*/
+    text-align: center;
+    align-items: center;
 }
 
-#npv button {
+#calculationContent button {
     color: black;
+}
+
+#calculationContent {
+    margin-bottom: 150px;
 }
 
 .centerContent {
-/*
-    width : 600px;
-    height: 600px;
-*/
     position: absolute;
     top: 0;
     bottom: 0;
@@ -19,7 +21,6 @@
     right: 0; 
     margin: auto;
     margin-top: 150px;
-
     font-size: 1.3em;
     color: white;
     
@@ -28,6 +29,7 @@
 
 body { 
     background: dimgrey !important; 
+/*    background: #D3D3D3 !important;*/
 } 
 
 nav {
@@ -42,4 +44,9 @@ nav {
     color: white;
     text-decoration: none;
     padding: 40px;
+}
+
+.input-group {
+    width: 300px;
+    margin: auto;
 }

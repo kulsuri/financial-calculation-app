@@ -47,21 +47,35 @@
                     NPV = - C_0 + \sum_{i=1}^T \frac{C_i}{(1+r)^i} 
                 </div>
                 <br>
-                <div id="npv" ng-controller="Ctrl4" class="">
+                <div id="calculationContent" ng-controller="npvCtrl" class="">
                     <form ng-submit="sendPost()">
-                        <input type="number" ng-model="discountRate" placeholder="discount rate">
-                        <br><br>
-                        <input type="number" ng-model="initialInvestment" placeholder="initial investment">
-                        <br><br>
-                        <input type="number" ng-model="years" ng-change="addCashFlowFields()" placeholder="years">
-                        <br><br>
-                        <div ng-repeat="item in cashFlowsArray">
-                            <input type="number" ng-model="item.value" placeholder="cashFlow year">
+                        <div class="input-group">
+                            <span class="input-group-addon" id="basic-addon1">Discount Rate</span>
+                            <input type="number" class="form-control" ng-model="discountRate" aria-describedby="basic-addon1" placeholder="e.g. 5 for 5%">
                         </div>
                         <br>
-                        <button type="submit" class="btn btn-default glyphicon glyphicon-ok"></button>
+                        <div class="input-group">
+                            <span class="input-group-addon" id="basic-addon1">Initial Investment</span>
+                            <input type="number" class="form-control" ng-model="initialInvestment" aria-describedby="basic-addon1" placeholder="e.g. 1000 for $1000">
+                        </div>
+                        <br>
+                        <div class="input-group">
+                            <span class="input-group-addon" id="basic-addon1">No of Years</span>
+                            <input type="number" class="form-control" ng-model="years" ng-change="addCashFlowFields()" aria-describedby="basic-addon1" placeholder="e.g. 5 for 5 years">
+                        </div>
+                        <br>
+                        <div class="input-group" ng-repeat="item in cashFlowsArray">
+                            <span class="input-group-addon" id="basic-addon1">Cash Flow Year</span>
+                            <input type="number" class="form-control" ng-model="item.value" aria-describedby="basic-addon1">
+                            <br>
+                        </div>
+                        <br>
+                        <button type="submit" class="btn btn-secondary">Calculate</button>
                         <br><br>
-                        <input type="text" name="" placeholder="npv" value="{{npv.npv}}"><br>
+                        <div class="input-group">
+                            <span class="input-group-addon" id="basic-addon1">NPV</span>
+                            <input type="text" class="form-control" value="{{npv.npv}}" aria-describedby="basic-addon1" placeholder="Press Calculate for the NPV :)">
+                        </div>
                     </form>
                 </div>
             </div>

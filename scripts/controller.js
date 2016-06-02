@@ -2,7 +2,7 @@
 
 angular.module("MyModule")
 
-    .controller('Ctrl4', ['$scope', '$http', function ($scope, $http) {
+    .controller('npvCtrl', ['$scope', '$http', function ($scope, $http) {
         
         $scope.addCashFlowFields = function(){
             if($scope.years > 100){
@@ -13,7 +13,6 @@ angular.module("MyModule")
                 }
             }
         };
-//        $scope.test = 10;
         $scope.sendPost = function(){
             if($scope.cashFlowsArray === undefined){
                 console.log("Missing fields");
