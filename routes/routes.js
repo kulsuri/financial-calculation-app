@@ -23,7 +23,7 @@ var appRouter = function(app){
     });
 
     app.get("/npv", function(req, res){
-        res.sendFile('index.html', {root: __dirname + '/../templates'});
+        res.sendFile('npv.html', {root: __dirname + '/../templates'});
     });
     
     app.get("/irr", function(req, res){
