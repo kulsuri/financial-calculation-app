@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html ng-app="MyModule" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>npv rest api app</title>
+        <!-- STYLE SHEETS -->
+        <!-- /\/\/\/\/\/\ -->
+        <!--styles css-->
+        <link rel="stylesheet" href="styles/styles.css">
+        <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+        <!--bootstrap cdn-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+        <!-- mmenu css -->
+        <link href="styles/jquery.mmenu.all.css" type="text/css" rel="stylesheet" />
+        <!-- KaTeX css-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css">
+        <!-- SCRIPTS -->
+        <!-- /\/\/\/ -->
+        <!--angular cdn-->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+        <!-- angular module-->
+        <script src="scripts/module.js" type="text/javascript"></script>
+        <!-- angular controller -->
+        <script src="scripts/controller.js" type="text/javascript"></script>
+        <!-- jQuery cdn -->
+        <script src="https://code.jquery.com/jquery-2.2.3.min.js" integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="   crossorigin="anonymous"></script>
+        <!-- mmenu jquery script -->
+        <script src="scripts/jquery.mmenu.all.min.js" type="text/javascript"></script>
+        <!-- mmenu config-->
+        <script src="scripts/mmenuConfig.js" type="text/javascript"></script>
+        <!-- KaTeX cdn-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.js"></script>
+    </head>
+    <body>
+        <div>
+            <nav id="my-menu">
+                <ul id="">
+                    <li><a href="/npv">Net Present Value</a></li>
+                    <li><a href="/irr">Internal Rate of Return</a></li>
+                    <li><a href="/about">About Our Website</a></li>
+                </ul>
+            </nav>
+            <div>
+                <a href="#my-menu" id="menuButton" class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></a>
+            </div>    
+            <div class="centerContent">
+                <div id="npvFormula" class="title">
+                    <h1 class="titleFont">About This Website</h1> 
+                </div>
+                <br>
+                <br>
+                <div id="calculationContent" class="titleFont" ng-controller="npvCtrl">
+                    <div class="container">
+                        <div class="col-md-6">
+                            <h3>NPV Calculation</h3>
+                            <br>
+                            <h4>
+                                In finance, the net present value (NPV) or net present worth (NPW) is a measurement of the profitability of an undertaking that is calculated by subtracting the present values (PV) of cash outflows (including initial cost) from the present values of cash inflows over a period of  time.
+                            </h4>
+                        </div>
+                        <div class="col-md-6">
+                            <h3>
+                                IRR Calculation
+                            </h3>
+                            <br>
+                            <h4>
+                                Calculating the IRR for a one-year project with a single lump-sum capital investment and single payout is fairly straightforward. For example, assume a one-year project with an initial investment of $10,000 that yields a return of $15,000. To bring the NPV for this project to zero, the annual IRR must be 50%
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <!-- KaTeX html font formatting -->
+    <script src="scripts/katexFontFormatting.js"></script>
+</html>

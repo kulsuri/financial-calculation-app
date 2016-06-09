@@ -11,7 +11,6 @@ seneca.add({role: 'finance', cmd: 'NPV'}, function(args, done){
     var npvValue = {"npv": npvRounded}
     done(null, npvValue);
 })
-
 .add({role: 'finance', cmd: 'IRR'}, function(args, done){
     console.log(args.cashFlow);
     var finance = new Finance();
@@ -19,7 +18,10 @@ seneca.add({role: 'finance', cmd: 'NPV'}, function(args, done){
     var irrValue = {"irr": math.round(irrValueFromLibrary, 2)};
     done(null, irrValue);
 })
-
+.add({role: 'finance', cmd: 'NPV'}, function(args, done){
+    console.log(args)
+    console.log(done)
+})
 seneca.listen
 ({
     host: 'localhost',

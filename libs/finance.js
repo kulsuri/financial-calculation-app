@@ -1,6 +1,7 @@
 // Instantiate a Finance class
 var Finance = function() {};
 
+// Net Present Value (NPV)
 Finance.prototype.NPV2 = function(discountRate, initialInvestment, years, cashFlow) {
     var discountRateDecimal = discountRate/100;
     var presentValue = [];
@@ -17,20 +18,21 @@ Finance.prototype.NPV2 = function(discountRate, initialInvestment, years, cashFl
 
 // Internal Rate of Return (IRR)
 Finance.prototype.IRR2 = function(CArray) {
+    CArray[0] = -CArray[0];
     var min = -1.0;
     var max = 1.0;
     var guess = (min + max) / 2;
-    var lastGuess = 1.0
-    var notSame = true
+    var lastGuess = 1.0;
+    var notSame = true;
     var NPV = 0;
     do {
         NPV = 0;
         guess = (min + max) / 2;
         // console.log(guess,min,max)
-        if (Math.abs(lastGuess-guess)<0.0000000000000000001) notSame = false
-        lastGuess = guess
+        if (Math.abs(lastGuess-guess)<0.0000000000000000001) notSame = false;
+        lastGuess = guess;
         for (var j=0; j<CArray.length; j++) {
-            NPV += CArray[j] / (Math.pow(1+guess,j))
+            NPV += CArray[j] / (Math.pow(1+guess,j));
             //NPV += PVCalc(CArray[j],guess,j);
         }
         if (NPV > 0) {
@@ -41,7 +43,7 @@ Finance.prototype.IRR2 = function(CArray) {
     } while(notSame && (Math.abs(NPV) > 0.0000000000000000001));
     var raw = parseFloat(guess * 100).toFixed(2);
     return parseFloat(raw);
-}
+};
 
 if (typeof exports !== 'undefined') {
     if (typeof module !== 'undefined' && module.exports) {

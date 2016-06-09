@@ -31,7 +31,7 @@
         <!-- KaTeX cdn-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.js"></script>
     </head>
-    <body ng-controller="irrCtrl">
+    <body>
         <div>
             <nav id="my-menu">
                 <ul id="">
@@ -44,14 +44,19 @@
             </div>    
             <div class="centerContent">
                 <div id="npvFormula" class="math">
-                    - C_0 + \sum_{i=1}^T \frac{C_i}{(1+irr)^i} = 0
-                </div>
+                    NPV = - C_0 + \sum_{i=1}^T \frac{C_i}{(1+r)^i} 
+                </div>html t
                 <br>
-                <div id="calculationContent" class="">
+                <div id="calculationContent" ng-controller="npvCtrl" class="">
                     <form ng-submit="sendPost()">
                         <div class="input-group">
+                            <span class="input-group-addon" id="basic-addon1">Discount Rate</span>
+                            <input type="number" class="form-control" maxlength="2" ng-model="discountRate" aria-describedby="basic-addon1" placeholder="e.g. 5 for 5%">
+                        </div>
+                        <br>
+                        <div class="input-group">
                             <span class="input-group-addon" id="basic-addon1">Initial Investment</span>
-                            <input type="number" class="form-control" maxlength="2" ng-model="initialInvestment" aria-describedby="basic-addon1"  placeholder="e.g. 1000 for $1000">
+                            <input type="number" class="form-control" ng-model="initialInvestment" aria-describedby="basic-addon1" placeholder="e.g. 1000 for $1000">
                         </div>
                         <br>
                         <div class="input-group">
@@ -62,41 +67,20 @@
                         <div class="input-group" ng-repeat="item in cashFlowsArray">
                             <span class="input-group-addon" id="basic-addon1">Cash Flow Year</span>
                             <input type="number" class="form-control" ng-model="item.value" aria-describedby="basic-addon1">
+                            <br>
                         </div>
                         <br>
                         <button type="submit" class="btn btn-secondary">Calculate</button>
                         <br><br>
                         <div class="input-group">
-                            <span class="input-group-addon" id="basic-addon1">IRR</span>
-                            <input type="text" class="form-control" value="{{irr.irr}}" aria-describedby="basic-addon1" placeholder="Press Calculate for the IRR :)">
+                            <span class="input-group-addon" id="basic-addon1">NPV</span>
+                            <input type="text" class="form-control" value="{{npv.npv}}" aria-describedby="basic-addon1" placeholder="Press Calculate for the NPV :)">
                         </div>
                     </form>
                 </div>
             </div>
         </div>
-       <!-- HOW TO DISPLAY AN ERROR MESSAGE FROM CONTROLLER
-                $scope.errorMessage = "INSERT YOUR ERROR MESSAGE HERE.";
-                $('#settingsErrorMessages').modal('show'); -->
-
-    <div class="modal fade" id="settingsErrorMessages" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                                      <h2><strong>Oops!</strong></h2>
-                </div>
-                <div class="modal-body">
-                    <h5 style="color:#801515;"><strong>{{errorMessage}}</strong></h5>
-					<h3 style="color:#801515;" ng-repeat="error in errorChildMessage"><strong>{{error.name}}</strong></h3>
-					   <h5 style="color:#801515;"><strong>{{errorEndMessage}}</strong></h5>
-                </div>
-                <div class="modal-footer">
-                    
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</body>
+    </body>
     <!-- KaTeX html font formatting -->
     <script src="scripts/katexFontFormatting.js"></script>
 </html>
