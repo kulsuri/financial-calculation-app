@@ -30,6 +30,8 @@
         <script src="scripts/mmenuConfig.js" type="text/javascript"></script>
         <!-- KaTeX cdn-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.js"></script>
+        <!-- font awesome -->
+        <script src="https://use.fontawesome.com/a6b9188aee.js"></script>
     </head>
     <body>
         <div>
@@ -39,9 +41,22 @@
                     <li><a href="/irr">Internal Rate of Return</a></li>
                 </ul>
             </nav>
+            <nav id="info-menu">
+                <ul id="">
+                    <li><a href="/">test....</a></li>
+                    <li><a href="/">xxx</a></li>
+                    <li><a href="/">zzzzzz</a></li>
+                    <li><a href="/">hhhhhhh</a></li>
+                    <li><a href="/">232323</a></li>                    
+                </ul>
+            </nav>
             <div>
                 <a href="#my-menu" id="menuButton" class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></a>
-            </div>    
+            </div>   
+            <div>
+                <a href="#info-menu" id="infoButton" class="glyphicon glyphicon-info-sign" aria-hidden="true"></a>
+            </div>
+            
             <div class="centerContent">
                 <div id="npvFormula" class="math">
                     NPV = - C_0 + \sum_{i=1}^T \frac{C_i}{(1+r)^i} 
@@ -60,7 +75,7 @@
                         </div>
                         <br>
                         <div class="input-group">
-                            <span class="input-group-addon" id="basic-addon1">No of Years</span>
+                            <span class="input-group-addon" id="basic-addon1">No. of Years</span>
                             <input type="number" class="form-control" ng-model="years" ng-change="addCashFlowFields()" aria-describedby="basic-addon1" placeholder="e.g. 5 for 5 years">
                         </div>
                         <br>

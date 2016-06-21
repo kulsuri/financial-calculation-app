@@ -16,6 +16,6 @@ app.use("/styles",  express.static(__dirname + '/styles'));
 
 var routes = require("./routes/routes.js")(app);
 
-var server = app.listen(3000, function(){
+var server = app.listen(3000, function() {
     console.log("listening on port %s...", server.address().port);
 });

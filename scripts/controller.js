@@ -6,6 +6,9 @@ angular.module("MyModule")
         
         $scope.addCashFlowFields = function(){
             if($scope.years > 100){
+            
+            } else if($scope.years < 1){
+                $scope.year = 0;
             } else {
                 $scope.cashFlowsArray = [];
                 for (var i=0; i < $scope.years; ++i){
@@ -13,8 +16,8 @@ angular.module("MyModule")
                 }
             }
         };
+        
         $scope.sendPost = function(){
-   
             if($scope.discountRate === undefined){
                 console.log("discount rate missing"); 
                 window.alert("discount rate missing");
@@ -63,6 +66,9 @@ angular.module("MyModule")
 
         $scope.addCashFlowFields = function(){
             if($scope.years > 100){
+
+            } else if($scope.years < 1){
+                $scope.year = 0;
             } else {
                 $scope.cashFlowsArray = [];
                 for (var i=0; i < $scope.years; ++i){
@@ -72,7 +78,6 @@ angular.module("MyModule")
         };
         
         $scope.sendPost = function(){
-
             if($scope.initialInvestment === undefined){
                 console.log("initial investment missing");
                 window.alert("initial investment missing");

@@ -32,10 +32,8 @@ body {
 /*    background: #D3D3D3 !important;*/
 } 
 
-nav {
-    padding: 40px;
-    font-size: 1em; 
-    color: aqua;
+#info-menu {
+    margin-right: 38px;
 }
 
 #menuButton {
@@ -43,7 +41,17 @@ nav {
     font-size: 2.3em;
     color: white;
     text-decoration: none;
-    padding: 40px;
+    padding-left: 40px;
+    padding-top: 40px;
+}
+
+#infoButton {
+    float: right;
+    font-size: 2.3em;
+    color: white;
+    text-decoration: none;
+    padding-right: 40px;
+    padding-top: 40px;
 }
 
 .input-group {
