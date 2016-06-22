@@ -3,6 +3,8 @@ var Finance = require('../libs/finance.js');
 
 var seneca = require('seneca')()
 
+console.log("!-- seneca server started --!")
+
 seneca.add({role: 'finance', cmd: 'NPV'}, function(args, done){
     console.log(args);
     var finance = new Finance();
