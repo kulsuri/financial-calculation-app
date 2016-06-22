@@ -7,8 +7,8 @@ seneca.client ({
 var appRouter = function(app){
 
     app.get("/", function(req, res){
-//        res.send("this is the homepage!!");
-        res.redirect("/home")
+        res.send("this is the homepage!!");
+        //res.redirect("/home")
     });
 
     app.get("/about", function(req, res){
