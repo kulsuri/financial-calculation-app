@@ -17,7 +17,8 @@ $(document).ready(function() {
             "theme-white",
             "effect-menu-slide",
             "multiline",
-            "pagedim-black"
+            "pagedim-black",
+            "border-offset"
 //            "pageshadow",
 //            "widescreen"
         ]
@@ -50,6 +51,7 @@ $(document).ready(function() {
         extensions: [
             "theme-white",
             "multiline",
+            "border-none"
 //            "pagedim",
 //            "pageshadow",
         ]
