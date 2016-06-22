@@ -1,9 +1,11 @@
-var seneca = require('seneca')()
-seneca.client ({
-    host: 'localhost',
-    //port: '3001',
-    pin: {role: 'finance'}
-})
+var seneca = require('seneca')();
+var math = require('mathjs');
+var Finance = require('../libs/finance.js');
+// seneca.client ({
+//     host: 'localhost',
+//     //port: '3001',
+//     pin: {role: 'finance'}
+// })
 var appRouter = function(app){
 
     app.get("/", function(req, res){
@@ -41,9 +43,11 @@ var appRouter = function(app){
         if(!discountRate || !initialInvestment || !years || !cashFlow) {
             return res.send({"status": "error", "message": "missing a parameter"});
         } else {
-            seneca.act({role: 'finance', cmd: 'NPV', discountRate: discountRate, initialInvestment: initialInvestment, years: years, cashFlow: cashFlow }, function(err, done){
-                    console.log(done);
-                    return res.send(done);
+            var finance = new Finance();
+            var npvValueFromLibrary = finance.NPV2(args.discountRate, args.initialInvestment, args.years, args.cashFlow);
+            var npvRounded = math.round(npvValueFromLibrary, 2);
+            var npvValue = {"npv": npvRounded}
+            return res.send(npvValue);
             });
         }
     });
