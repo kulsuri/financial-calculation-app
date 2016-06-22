@@ -1,7 +1,7 @@
 var seneca = require('seneca')()
 seneca.client ({
     host: 'localhost',
-    port: '3001',
+    //port: '3001',
     pin: {role: 'finance'}
 })
 var appRouter = function(app){
