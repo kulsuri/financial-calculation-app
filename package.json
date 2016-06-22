@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "an example of making a node.js api server",
   "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "start": "node scripts/seneca.js"
+  },
   "author": "kulraj suri",
   "license": "MIT",
   "dependencies": {
