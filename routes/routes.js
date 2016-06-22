@@ -44,7 +44,7 @@ var appRouter = function(app){
             return res.send({"status": "error", "message": "missing a parameter"});
         } else {
             var finance = new Finance();
-            var npvValueFromLibrary = finance.NPV2(args.discountRate, args.initialInvestment, args.years, args.cashFlow);
+            var npvValueFromLibrary = finance.NPV2(discountRate, initialInvestment, years, cashFlow);
             var npvRounded = math.round(npvValueFromLibrary, 2);
             var npvValue = {"npv": npvRounded}
             res.send(npvValue);
