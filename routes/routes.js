@@ -1,6 +1,6 @@
 // var seneca = require('seneca')();
 var math = require('mathjs');
-var Finance = require('/../libs/finance.js');
+var Finance = require('../libs/finance.js');
 // seneca.client ({
 //     host: 'localhost',
 //     //port: '3001',
@@ -49,7 +49,7 @@ var appRouter = function(app){
             var npvValue = {"npv": npvRounded}
             res.send(npvValue);
             });
-        }
+        //}
     });
     
     app.post("/irr", function(req, res){
@@ -62,7 +62,7 @@ var appRouter = function(app){
             //     console.log(done);
             //     return res.send(done);
             });    
-        }
+        //}
     });
 };
 
