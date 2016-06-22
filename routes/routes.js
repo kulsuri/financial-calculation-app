@@ -7,7 +7,8 @@ seneca.client ({
 var appRouter = function(app){
 
     app.get("/", function(req, res){
-        res.send("this is the homepage!!");
+        res.sendFile('npv.html', {root: __dirname + '/../templates'});
+        //res.send("this is the homepage!!");
         //res.redirect("/home")
     });
 
