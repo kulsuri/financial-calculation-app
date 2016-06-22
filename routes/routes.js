@@ -1,6 +1,6 @@
 // var seneca = require('seneca')();
 var math = require('mathjs');
-var Finance = require('../libs/finance.js');
+var Finance = require('/../libs/finance.js');
 // seneca.client ({
 //     host: 'localhost',
 //     //port: '3001',
