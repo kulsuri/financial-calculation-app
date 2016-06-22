@@ -1,4 +1,4 @@
-var seneca = require('seneca')();
+// var seneca = require('seneca')();
 var math = require('mathjs');
 var Finance = require('../libs/finance.js');
 // seneca.client ({
@@ -47,7 +47,7 @@ var appRouter = function(app){
             var npvValueFromLibrary = finance.NPV2(args.discountRate, args.initialInvestment, args.years, args.cashFlow);
             var npvRounded = math.round(npvValueFromLibrary, 2);
             var npvValue = {"npv": npvRounded}
-            return res.send(npvValue);
+            res.send(npvValue);
             });
         }
     });
