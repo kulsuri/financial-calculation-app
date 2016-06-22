@@ -4,8 +4,7 @@
   "description": "an example of making a node.js api server",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
-    "postpublish": "node scripts/seneca.js"
+    "start": "node app.js"
   },
   "author": "kulraj suri",
   "license": "MIT",
