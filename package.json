@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "poststart": "node scripts/seneca.js"
+    "start": "node scripts/seneca.js"
   },
   "author": "kulraj suri",
   "license": "MIT",
