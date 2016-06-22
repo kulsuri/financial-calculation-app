@@ -22,6 +22,7 @@ seneca.add({role: 'finance', cmd: 'NPV'}, function(args, done){
 seneca.listen
 ({
     host: 'localhost',
-    port: '3001'
+    port: '3001',
+    timeout: 5000
     //port:  'process.env.PORT || 3001'
 })
