@@ -48,8 +48,8 @@ var appRouter = function(app){
             var npvRounded = math.round(npvValueFromLibrary, 2);
             var npvValue = {"npv": npvRounded}
             res.send(npvValue);
-            });
-        //}
+            //});
+        }
     });
     
     app.post("/irr", function(req, res){
@@ -61,8 +61,8 @@ var appRouter = function(app){
             // seneca.act({role: 'finance', cmd: 'IRR', cashFlow}, function(err, done){
             //     console.log(done);
             //     return res.send(done);
-            });    
-        //}
+            // });    
+        }
     });
 };
 
