@@ -58,9 +58,9 @@ var appRouter = function(app){
         if(!cashFlow) {
             return res.send({"status": "error", "message": "missing a parameter"});
         } else {
-            seneca.act({role: 'finance', cmd: 'IRR', cashFlow}, function(err, done){
-                console.log(done);
-                return res.send(done);
+            // seneca.act({role: 'finance', cmd: 'IRR', cashFlow}, function(err, done){
+            //     console.log(done);
+            //     return res.send(done);
             });    
         }
     });
