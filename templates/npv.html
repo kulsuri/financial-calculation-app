@@ -80,7 +80,7 @@
                         </div>
                         <br>
                         <div class="input-group" ng-repeat="item in cashFlowsArray">
-                            <span class="input-group-addon" id="basic-addon1">Cash Flow Year</span>
+                            <span class="input-group-addon" id="basic-addon1">Cash Flow Year {{$index + 1}}</span>
                             <input type="number" class="form-control" ng-model="item.value" aria-describedby="basic-addon1">
                             <br>
                         </div>

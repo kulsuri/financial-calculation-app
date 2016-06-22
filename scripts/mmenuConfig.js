@@ -17,9 +17,9 @@ $(document).ready(function() {
             "theme-white",
             "effect-menu-slide",
             "multiline",
-            "pagedim-black",
-            "pageshadow",
-            "widescreen"
+            "pagedim-black"
+//            "pageshadow",
+//            "widescreen"
         ]
     });
     var API = $("#my-menu").data( "mmenu" );
@@ -49,12 +49,9 @@ $(document).ready(function() {
         },
         extensions: [
             "theme-white",
-//            "effect-menu-slide",
             "multiline",
 //            "pagedim",
 //            "pageshadow",
-//            "widescreen",
-//            "popup"
         ]
     });
     var API = $("#info-menu").data( "mmenu" );

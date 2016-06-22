@@ -11,12 +11,13 @@ angular.module("MyModule")
                 $scope.year = 0;
             } else {
                 $scope.cashFlowsArray = [];
+
                 for (var i=0; i < $scope.years; ++i){
                     $scope.cashFlowsArray.push({});
                 }
             }
         };
-        
+                
         $scope.sendPost = function(){
             if($scope.discountRate === undefined){
                 console.log("discount rate missing"); 
