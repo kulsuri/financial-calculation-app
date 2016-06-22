@@ -3,7 +3,7 @@ var Finance = require('../libs/finance.js');
 
 var seneca = require('seneca')()
 
-console.log("!-- seneca server started --!")
+//console.log("!-- seneca server started --!")
 
 seneca.add({role: 'finance', cmd: 'NPV'}, function(args, done){
     console.log(args);
@@ -24,7 +24,7 @@ seneca.add({role: 'finance', cmd: 'NPV'}, function(args, done){
 seneca.listen
 ({
     host: 'localhost',
-    //port: '3001',
+    port: '3001'
     //timeout: 5000
     //port:  'process.env.PORT || 3001'
 })
