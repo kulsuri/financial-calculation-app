@@ -45,7 +45,7 @@ angular.module("MyModule")
                 }
                 if(missingCashFlowYearField !== true){
                     $http({
-                        url: '/npv',
+                        url: 'process.env.PORT/npv',
                         method: "POST",
                         data: {
                             "discountRate": $scope.discountRate,
