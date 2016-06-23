@@ -7,7 +7,7 @@ $(document).ready(function() {
                     "<a class='glyphicon glyphicon-home' href='http://www.thecitysecret.com/'></a>",
                     "<a class='glyphicon glyphicon-user' href='/about'></a>",
                     "<a class='glyphicon glyphicon-comment' href='http://www.thecitysecret.com/page/contact'></a>"
-                ],
+                ]
             }
         ],
         iconPanels: true,
@@ -36,7 +36,7 @@ $(document).ready(function() {
                     "<a class='glyphicon glyphicon-envelope' href=''></a>",
                     "<a class='fa fa-twitter' href=''></a>",
                     "<a class='fa fa-facebook' href=''></a>"
-                ],
+                ]
             }
         ],
         iconPanels: true,
@@ -57,4 +57,20 @@ $(document).ready(function() {
         ]
     });
     var API = $("#info-menu").data( "mmenu" );
+    
+    var animationName = 'animated rollIn';
+    var animationEnd = 'webkitAnimationEnd moxAnimationEnd MSAnimationEnd oanimationend animationend';
+    
+    $('#menuButton').on('click', function() {
+        $('#menuButton').addClass(animationName).one(animationEnd, function() {
+            $(this).removeClass(animationName);
+        });
+    });
+    
+    $('#infoButton').on('click', function() {
+        $('#infoButton').addClass('animated jello').one(animationEnd, function() {
+            $(this).removeClass('animated jello');
+        });
+    });
+    
 });

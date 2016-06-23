@@ -25,6 +25,10 @@ seneca.listen
 ({
     host: 'localhost',
     //port: '3001'
+<<<<<<< HEAD
     //timeout: 5000
     //port:  'process.env.PORT || 3001'
+=======
+    port:  '3001'
+>>>>>>> master
 })

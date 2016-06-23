@@ -14,6 +14,8 @@
         <link href="styles/jquery.mmenu.all.css" type="text/css" rel="stylesheet" />
         <!-- KaTeX css-->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.6.0/katex.min.css">
+        <!--animate css-->
+        <link rel="stylesheet" href="styles/animate.css">
         <!-- SCRIPTS -->
         <!-- /\/\/\/ -->
         <!--angular cdn-->
@@ -47,17 +49,11 @@
                         <p>The Net Present Value (NPV) is the difference between the present value of cash inflows and the present value of cash outflows. NPV is used in capital budgeting to analyze the profitability of a projected investment or project.</p>
                         <p>this is a test</p>
                     </li>
-<!--
-                    <li><a href="/">xxx</a></li>
-                    <li><a href="/">zzzzzz</a></li>
-                    <li><a href="/">hhhhhhh</a></li>
-                    <li><a href="/">232323</a></li>                    
--->
                 </ul>
             </nav>
             <div>
                 <a href="#my-menu" id="menuButton" class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></a>
-            </div>   
+            </div>
             <div>
                 <a href="#info-menu" id="infoButton" class="glyphicon glyphicon-info-sign" aria-hidden="true"></a>
             </div>
@@ -71,7 +67,7 @@
                     <form ng-submit="sendPost()">
                         <div class="input-group">
                             <span class="input-group-addon" id="basic-addon1">Discount Rate</span>
-                            <input type="number" class="form-control" ng-model="discountRate" aria-describedby="basic-addon1" placeholder="e.g. 5 for 5%">
+                            <input type="number" step="0.01" class="form-control" ng-model="discountRate" aria-describedby="basic-addon1" placeholder="e.g. 5 for 5%">
                         </div>
                         <br>
                         <div class="input-group">
