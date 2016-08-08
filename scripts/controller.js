@@ -103,7 +103,7 @@ angular.module("MyModule")
                 }
                 if(missingCashFlowYearField !== true){
                     $http({
-                        url: 'http://localhost:3000/irr',
+                        url: '/irr',
                         method: "POST",
                         data: {
                             cashFlow
