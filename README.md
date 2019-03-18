@@ -1,4 +1,7 @@
 # financial-calculation-app
+
+http://ficalc.herokuapp.com/
+
 Calculations
 ---
 - net present value 
