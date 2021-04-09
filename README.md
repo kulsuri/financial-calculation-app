@@ -1,6 +1,6 @@
 # financial-calculation-app
 
-http://ficalc.herokuapp.com/
+http://fi-calc.herokuapp.com/
 
 Calculations
 ---
